@@ -1,3 +1,7 @@
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule !\. - [H=application/x-httpd-php]
+RewriteRule ^(api)/(.+) $1.php/$2 [L]
+
+
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule !\. - [H=application/x-httpd-php]
