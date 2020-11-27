@@ -5,6 +5,6 @@
     $config["dbUser"] = "b7058fabaf2001";
     $config["dbPass"] = "668906b4";
     $config["dbSchema"] = "heroku_5a078d5bc9b2bde";
-    $config["apiBaseUrl"] = "http://localhost/StoneMonkeyStudios/api";
+    $config["apiBaseUrl"] = "http://localhost/GamesAPI";
     //mysql://b7058fabaf2001:668906b4@us-cdbr-east-02.cleardb.com/heroku_5a078d5bc9b2bde?reconnect=true
 ?>
