@@ -2,25 +2,25 @@
 	require_once("../../db.php");
 	require_once("../models/key-translation-model.php");
 	require_once("../models/localization-model.php");
-	require_once("../models/supported-locales-model.php");
+	require_once("../models/locales-model.php");
 	require_once("../models/locale-model.php");
 
-	function GetSupportedLocales()
+	function GetLocales()
 	{
 		$dbc = new DBConnection();
 		$sql = "SELECT locale_code, count(locale_code) as keyCount from localization GROUP BY locale_code";
 		$result = $dbc->handle->query($sql);
-		$slm = null;
+		$locales = null;
 		if($result)
 		{
-			$slm = new SupportedLocalesModel();
+			$localesModel = new LocalesModel();
 			while($row = $result->fetch_assoc())
 			{
 				$locale = new Locale($row['locale_code'], $row['keyCount']);
-				array_push($slm->locale_codes, $locale);
+				array_push($localesModel->locales, $locale);
 			}
 		}
-		return $slm;
+		return $localesModel;
 	}
 
 	function GetSingleLocale($locale)

@@ -5,10 +5,25 @@
     require_once('localization-methods.php');
     header('Content-type:application/json;charset=utf-8');
 
+    /*
+    Example Usage:
+    /api/locales
+        -GET: Returns list of locales and count of all keys associated with each
+        -POST: Creates a new locale collection. Require Parameter value
+    /api/locales/en
+        -GET: Return locale and keycount in collection en
+        -DELETE: Deletes all keys for locale en (TODO: Restrict with security eventually
+        -PUT: Creates locale for en
+    */
+
     $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
     if(count($request) > 0)
     {
         $selectedLocale = $request[0];
+    }
+    if(count($request) > 1)
+    {
+        $keyInLocale = $request[1];
     }
 
     switch($_SERVER['REQUEST_METHOD'])
@@ -17,8 +32,8 @@
             if(!isset($selectedLocale) || $selectedLocale == "")
             {
                 //Return all locales
-                $supportedLocales = GetSupportedLocales();
-                echo json_encode($supportedLocales);
+                $locales = GetLocales();
+                echo json_encode($locales);
                 http_response_code(200);
             }
             else
