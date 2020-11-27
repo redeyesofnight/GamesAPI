@@ -1,4 +1,5 @@
 <?php
+echo "here";
 // -*- mode: php; indent-tabs-mode: nil; tab-width: 4 -*-
     require_once('config.php');
     require_once('api-methods.php');
@@ -6,6 +7,7 @@
 
     $apiURL = $config["apiBaseUrl"] . "/v1.0";
     $localeURL = $apiURL . "/localization/locales";
+    return;
 
     //------------------
     //Localization Tests

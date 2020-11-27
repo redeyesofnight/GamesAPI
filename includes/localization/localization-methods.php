@@ -156,7 +156,7 @@
 	function AddKey($key, $value, $localeCode)
 	{
 		$dbc = new DBConnection();
-		$sql = "INSERT INTO localization (`localize_key`, `value`, `locale_code`) VALUES ('$key', '$value', '$localeCode')";
+		$sql = "INSERT INTO localization (`localize_key`, `value`, `locale_code`) VALUES ('$key', '$value', '$localeCode') ON DUPLICATE KEY UPDATE localization SET value = '$value' WHERE key = '$key' AND locale_code = '$localeCode'";
 		$result = $dbc->handle->query($sql);
 		$dbc->close();
 		return $result != null ? 1 : 0;
