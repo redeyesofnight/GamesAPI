@@ -23,5 +23,16 @@
     //TODO: Check for malformed data
 
     require_once('../db.php');
-    echo "HERE";
+    require_once('../models/apierror.php');
+    require_once('localization-methods.php');
+    header('Content-type:application/json;charset=utf-8');
+
+    $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
+    $method = $_SERVER['REQUEST_METHOD'];
+
+
+    
+    echo "<br />HERE<br />";
+    echo json_encode($request)."<br />";
+    echo $method."<br />";
 ?>
