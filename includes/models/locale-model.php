@@ -1,5 +1,5 @@
 <?php
-    class Locale
+    class LocaleModel
     {
         public $code;
         public $keyCount;

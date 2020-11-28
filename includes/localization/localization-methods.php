@@ -21,7 +21,7 @@
 			$localesModel = new LocalesModel();
 			while($row = $result->fetch_assoc())
 			{
-				$locale = new Locale($row['locale_code'], $row['keyCount']);
+				$locale = new LocaleModel($row['locale_code'], $row['keyCount']);
 				array_push($localesModel->locales, $locale);
 			}
 		}
@@ -39,7 +39,7 @@
 		{
 			if($row = $result->fetch_assoc())
 			{
-				$locale = new Locale($row['locale_code'], $row['keyCount']);
+				$locale = new LocaleModel($row['locale_code'], $row['keyCount']);
 			}
 		}
 		return $locale;
