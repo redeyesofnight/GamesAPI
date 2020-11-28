@@ -1,7 +1,7 @@
 <?php
+    echo "PHP.api<br />";
     require_once('includes/db.php');
     require_once('includes/api-methods.php');
-    echo "PHP.api<br />";
     $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
     
 
