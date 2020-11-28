@@ -1,5 +1,4 @@
 <?php
-echo "here";
 // -*- mode: php; indent-tabs-mode: nil; tab-width: 4 -*-
     include_once('includes/api-methods.php');
 
@@ -14,9 +13,8 @@ echo "here";
         die("Error: Missing Environment variable apiBaseURL");
     }
 
-    $apiURL = $_ENV["apiBaseUrl"] . "/v1";
+    $apiURL = $_ENV["apiBaseURL"] . "/api/v1";
     $localeURL = $apiURL . "/localization/locales";
-    return;
 
     //------------------
     //Localization Tests
