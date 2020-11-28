@@ -22,7 +22,7 @@
                 switch($request[2])
                 {
                     case "locales":
-                        $url = $_ENV["apiBaseUrl"]."/includes/localization/locales.php";
+                        $url = $_ENV["apiBaseURL"]."/includes/localization/locales.php";
                         for($i = 3; $i < count($request); $i++)
                         {
                             $url.="/".$request[$i];
