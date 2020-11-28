@@ -17,7 +17,7 @@
 
     //TODO: Check for malformed data
 
-    require_once('../../db.php');
+    require_once('../db.php');
     require_once('../models/apierror.php');
     require_once('localization-methods.php');
     header('Content-type:application/json;charset=utf-8');

@@ -8,7 +8,7 @@
     }
 
     $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
-    echo json_encode($request)."<br />";
+    //echo json_encode($request)."<br />";
 
     if(count($request) <3)
     {
@@ -28,9 +28,9 @@
                         {
                             $url.="/".$request[$i];
                         }
-                        echo "URL: ".$url."<br />";
-                        //$file = @file_get_contents($url, false, $context);
-                        //echo $file;
+                        //echo "URL: ".$url."<br />";
+                        $file = @file_get_contents($url, false, $context);
+                        echo $file;
                     break;
                     default:
                         http_response_code(404);
