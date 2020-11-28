@@ -18,9 +18,10 @@
     $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
     $method = $_SERVER['REQUEST_METHOD'];
 
-    echo "locales.php<br />";
+    echo "locales.php";
 
-    echo json_encode($request)."<br />";
-    echo $method;
+    //TODO: Check for malformed data
 
+    require_once('../db.php');
+    echo "HERE";
 ?>
