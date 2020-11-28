@@ -1,13 +1,13 @@
 <?php
     require_once('includes/db.php');
     require_once('includes/api-methods.php');
-    $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
     if(!isset($_ENV["apiBaseURL"]))
     {
-        die("Error: No environment variable for apiBaseURL");
+        die("Error: Missing Environment variable apiBaseURL");
     }
-    
+
+    $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
     if(count($request) <3)
     {
