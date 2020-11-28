@@ -27,6 +27,7 @@
 		}
 		return $localesModel;
 	}
+	echo "h6";
 
 	function GetSingleLocale($locale)
 	{
@@ -43,11 +44,7 @@
 		}
 		return $locale;
 	}
-
-	function GetDistinctKeyCount()
-	{
-		
-	}
+	echo "h7";
 
 	function GetTranslationDatabase($localeCode)
 	{
@@ -57,6 +54,8 @@
 		$model->localeCode = $localeCode;
 		return $model;
 	}
+
+	echo "h8";
 
 	function GetAllKeysForLocale($localeCode)
 	{
@@ -76,6 +75,7 @@
 		$dbc->close();
 		return $returnVal;
 	}
+	echo "h9";
 
 	function GetKeyCountForLocale($localeCode)
 	{
@@ -93,6 +93,7 @@
 		}
 		return 0;
 	}
+	echo "h10";
 
 	function GetLocalizedKey($key, $localeCode)
 	{
@@ -112,6 +113,7 @@
 		$dbc->close();
 		return $returnVal;
 	}
+	echo "h11";
 
 	function DoesKeyExistAnyLang($key)
 	{
@@ -132,6 +134,7 @@
 		$dbc->close();
 		return $returnVal;
 	}
+	echo "h12";
 
 	function DoesKeyExist($key, $localeCode)
 	{
@@ -152,11 +155,13 @@
 		$dbc->close();
 		return $returnVal;
 	}
+	echo "h13";
 
 	function DoesLocaleExist($localeCode)
 	{
 		return DoesKeyExist("locale", $localeCode);
 	}
+	echo "h14";
 
 	function AddKey($key, $value, $localeCode)
 	{
@@ -166,11 +171,13 @@
 		$dbc->close();
 		return $result != null ? 1 : 0;
 	}
+	echo "h15";
 
 	function AddLocale($localeCode)
 	{
 		return AddKey("locale", $localeCode, $localeCode);
 	}
+	echo "h16";
 
 	function DeleteKeyAllLang($key)
 	{
@@ -180,6 +187,7 @@
 		$dbc->close();
 		return $result != null ? 1 : 0;
 	}
+	echo "h17";
 
 	function DeleteKey($key, $localeCode)
 	{
@@ -189,6 +197,7 @@
 		$dbc->close();
 		return $result != null ? 1 : 0;
 	}
+	echo "h18";
 
 	function DeleteLocale($localeCode)
 	{
@@ -198,6 +207,7 @@
 		$dbc->close();
 		return $result != null ? 1 : 0;
 	}
+	echo "h19";
 
 	
 ?>
