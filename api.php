@@ -5,6 +5,6 @@
     {
         echo "DB USER SET: ".$_ENV['dbUser']."<br />";
     }
-    echo json_encode($_ENV);
+    echo json_encode($request);
 
 ?>
