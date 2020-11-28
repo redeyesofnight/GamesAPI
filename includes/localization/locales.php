@@ -30,12 +30,6 @@
     $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
     $method = $_SERVER['REQUEST_METHOD'];
 
-
-    
-    echo "<br />HERE<br />";
-    echo json_encode($request)."<br />";
-    echo $method."<br />";
-
     if(count($request) > 2)
     {
         http_response_code(404);
