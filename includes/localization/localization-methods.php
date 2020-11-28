@@ -1,9 +1,14 @@
 <?php
 	include_once("../db.php");
+	echo "h1";
 	include_once("../models/key-translation-model.php");
+	echo "h2";
 	include_once("../models/localization-model.php");
+	echo "h3";
 	include_once("../models/locales-model.php");
+	echo "h4";
 	include_once("../models/locale-model.php");
+	echo "h5";
 
 	function GetLocales()
 	{
