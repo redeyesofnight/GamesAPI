@@ -19,8 +19,7 @@
 
         function __construct()
         {
-            global $config;
-            $this->handle = new mysqli($config["dbHost"], $config["dbUser"], $config["dbPass"], $config["dbSchema"]);
+            $this->handle = new mysqli($_ENV["dbHost"], $_ENV["dbUser"], $_ENV["dbPass"], $_ENV["dbSchema"]);
             if($this->handle->connect_error)
             {
                 die("Connection failed: " . $this->handle->connect_error);
