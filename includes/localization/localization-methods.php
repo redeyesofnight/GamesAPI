@@ -1,5 +1,5 @@
 <?php
-	require_once("../../db.php");
+	require_once("../db.php");
 	require_once("../models/key-translation-model.php");
 	require_once("../models/localization-model.php");
 	require_once("../models/locales-model.php");
