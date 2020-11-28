@@ -19,6 +19,23 @@
 
         function __construct()
         {
+            if(!isset($_ENV["dbHost"]))
+            {
+                die("Error: Missing Environment variable dbHost");
+            }
+            if(!isset($_ENV["dbUser"]))
+            {
+                die("Error: Missing Environment variable dbUser");
+            }
+            if(!isset($_ENV["dbPass"]))
+            {
+                die("Error: Missing Environment variable dbPass");
+            }
+            if(!isset($_ENV["dbSchema"]))
+            {
+                die("Error: Missing Environment variable dbSchema");
+            }
+
             $this->handle = new mysqli($_ENV["dbHost"], $_ENV["dbUser"], $_ENV["dbPass"], $_ENV["dbSchema"]);
             if($this->handle->connect_error)
             {
