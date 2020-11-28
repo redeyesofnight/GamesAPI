@@ -1,5 +1,21 @@
 <?php
     include_once('config.php');
+    if(isset($_SERVER["dbHost"]))
+    {
+        $_ENV["dbHost"] = $_SERVER["dbHost"];
+    }
+    if(isset($_SERVER["dbUser"]))
+    {
+        $_ENV["dbUser"] = $_SERVER["dbUser"];
+    }
+    if(isset($_SERVER["dbPass"]))
+    {
+        $_ENV["dbPass"] = $_SERVER["dbPass"];
+    }
+    if(isset($_SERVER["dbSchema"]))
+    {
+        $_ENV["dbSchema"] = $_SERVER["dbSchema"];
+    }
 
     class DBConnection
     {

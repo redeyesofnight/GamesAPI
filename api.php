@@ -2,6 +2,12 @@
     include_once('includes/db.php');
     include_once('includes/api-methods.php');
 
+    //On some systems, the proper variable will be set in $_SERVER
+    if(isset($_SERVER["apiBaseURL"]))
+    {
+        $_ENV["apiBaseURL"] = $_SERVER["apiBaseURL"];
+    }
+
     if(!isset($_ENV["apiBaseURL"]))
     {
         die("Error: Missing Environment variable apiBaseURL");
