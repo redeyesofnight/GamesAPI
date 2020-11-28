@@ -25,7 +25,8 @@ $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 */
 if(count($request) == 0)
 {
-    http_response_code(404);
+    http_response_code(200);
+    echo "Base API Page";
 }
 else if(count($request) < 3)
 {
