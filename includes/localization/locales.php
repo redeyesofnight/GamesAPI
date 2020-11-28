@@ -18,8 +18,6 @@
     $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
     $method = $_SERVER['REQUEST_METHOD'];
 
-    echo "locales.php";
-
     //TODO: Check for malformed data
 
     require_once('../db.php');
