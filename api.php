@@ -14,7 +14,5 @@
     {
         echo json_encode($request);
     }
-        
-}
 
 ?>
