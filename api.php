@@ -2,6 +2,11 @@
     require_once('includes/db.php');
     require_once('includes/api-methods.php');
     $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
+
+    if(!isset($_ENV["apiBaseURL"]))
+    {
+        die("Error: No environment variable for apiBaseURL");
+    }
     
 
     if(count($request) <3)
@@ -17,11 +22,12 @@
                 switch($request[2])
                 {
                     case "locales":
-                        $url = $config["apiBaseUrl"]."/includes/localization/locales.php";
+                        $url = $_ENV["apiBaseUrl"]."/includes/localization/locales.php";
                         for($i = 3; $i < count($request); $i++)
                         {
                             $url.="/".$request[$i];
                         }
+                        echo "URL: ".$url."<br />";
                         $file = @file_get_contents($url, false, $context);
                         echo $file;
                     break;
