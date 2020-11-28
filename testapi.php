@@ -1,11 +1,20 @@
 <?php
 echo "here";
 // -*- mode: php; indent-tabs-mode: nil; tab-width: 4 -*-
-    include_once('config.php');
-    include_once('api-methods.php');
-    global $config;
+    include_once('includes/api-methods.php');
 
-    $apiURL = $config["apiBaseUrl"] . "/v1.0";
+    //On some systems, the proper variable will be set in $_SERVER
+    if(isset($_SERVER["apiBaseURL"]))
+    {
+        $_ENV["apiBaseURL"] = $_SERVER["apiBaseURL"];
+    }
+
+    if(!isset($_ENV["apiBaseURL"]))
+    {
+        die("Error: Missing Environment variable apiBaseURL");
+    }
+
+    $apiURL = $_ENV["apiBaseUrl"] . "/v1";
     $localeURL = $apiURL . "/localization/locales";
     return;
 
