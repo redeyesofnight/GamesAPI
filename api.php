@@ -1,5 +1,4 @@
 <?php
-    echo "PHP.api<br />";
     require_once('includes/db.php');
     require_once('includes/api-methods.php');
     $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
@@ -12,7 +11,31 @@
     }
     else
     {
-        echo json_encode($request);
+        switch($request[1])
+        {
+            case "localization":
+                switch($request[2])
+                {
+                    case "locales":
+                        $url = $config["apiBaseUrl"]."/includes/localization/locales.php";
+                        for($i = 3; $i < count($request); $i++)
+                        {
+                            $url.="/".$request[$i];
+                        }
+                        $file = @file_get_contents($url, false, $context);
+                        echo $file;
+                    break;
+                    default:
+                        http_response_code(404);
+                    break;
+                }
+
+                
+                break;
+            default:
+                http_response_code(404);
+            break;
+        }
     }
 
 ?>
