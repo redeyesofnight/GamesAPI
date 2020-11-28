@@ -22,11 +22,11 @@
 
     //TODO: Check for malformed data
 
-    require_once('../db.php');
+    include_once('../db.php');
     echo "here1";
-    require_once('../models/apierror.php');
+    include_once('../models/apierror.php');
     echo "here2";
-    require_once('localization-methods.php');
+    include_once('localization-methods.php');
     echo "here3";
     header('Content-type:application/json;charset=utf-8');
     echo "here4";

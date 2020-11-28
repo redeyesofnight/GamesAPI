@@ -1,6 +1,6 @@
 <?php
-    require_once('includes/db.php');
-    require_once('includes/api-methods.php');
+    include_once('includes/db.php');
+    include_once('includes/api-methods.php');
 
     if(!isset($_ENV["apiBaseURL"]))
     {

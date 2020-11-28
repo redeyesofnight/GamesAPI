@@ -1,8 +1,8 @@
 <?php
 echo "here";
 // -*- mode: php; indent-tabs-mode: nil; tab-width: 4 -*-
-    require_once('config.php');
-    require_once('api-methods.php');
+    include_once('config.php');
+    include_once('api-methods.php');
     global $config;
 
     $apiURL = $config["apiBaseUrl"] . "/v1.0";

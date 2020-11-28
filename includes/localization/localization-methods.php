@@ -1,9 +1,9 @@
 <?php
-	require_once("../db.php");
-	require_once("../models/key-translation-model.php");
-	require_once("../models/localization-model.php");
-	require_once("../models/locales-model.php");
-	require_once("../models/locale-model.php");
+	include_once("../db.php");
+	include_once("../models/key-translation-model.php");
+	include_once("../models/localization-model.php");
+	include_once("../models/locales-model.php");
+	include_once("../models/locale-model.php");
 
 	function GetLocales()
 	{
