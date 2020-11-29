@@ -9,8 +9,8 @@
         public $innererror;
         
         function __construct($code, $message){
-            $this->id = $code;
-            $this->key = $message;
+            $this->code = $code;
+            $this->message = $message;
             $this->target = null;
             $this->details = null;
             $this->innererror = null;

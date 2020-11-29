@@ -23,7 +23,6 @@
     require_once('../db.php');
     require_once('../models/apierror.php');
     require_once('localization-methods.php');
-    header('Content-type:application/json;charset=utf-8');
 
     $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
     $method = $_SERVER['REQUEST_METHOD'];
@@ -67,6 +66,7 @@
                         //Key exists
                         $keyTranslation = GetLocalizedKey($keyCode, $locale);
                         echo json_encode($keyTranslation);
+                        header('Content-type:application/json;charset=utf-8');
                         http_response_code(200);
                     }
                 }
@@ -103,6 +103,7 @@
                 {
                     http_response_code(400);
                     $err = new APIError("missingValue", "Request is missing required parameter 'value'");
+                    echo json_encode($err);
                 }
                 $singleLocale = GetSingleLocale($locale);
                 if(!isset($singleLocale))
@@ -113,8 +114,9 @@
                 {
                     $result = AddKey($key, $_REQUEST['value'], $locale);
                     $keyTranslation = GetLocalizedKey($keyCode, $locale);
-                    echo json_encode($keyTranslation);
                     http_response_code(200);
+                    header('Content-type:application/json;charset=utf-8');
+                    echo json_encode($keyTranslation);
                 }
             break;
             default:
@@ -136,16 +138,16 @@
             case 'GET':
                 //Return selected locale
                 $singleLocale = GetSingleLocale($locale);
-                if(!isset($singleLocale))
+                if($singleLocale == null)
                 {
+                    http_response_code(404);
                     $err = new APIError("LocaleDoesNotExist", "The given locale '$locale' doesn't exist.");
                     echo json_encode($err);
-                    http_response_code(404);
                 }
                 else
                 {
-                    echo json_encode($singleLocale);
                     http_response_code(200);
+                    echo json_encode($singleLocale);
                 }
             break;
             case 'PUT':
@@ -175,6 +177,7 @@
                 {
                     DeleteLocale($locale);
                     http_response_code(204);
+                    header('Content-type:application/json;charset=utf-8');
                 }
             break;
         }
@@ -193,6 +196,7 @@
                 $locales = GetLocales();
                 echo json_encode($locales);
                 http_response_code(200);
+                header('Content-type:application/json;charset=utf-8');
             break;
             case 'POST':
                 if(isset($_REQUEST['value']))
@@ -208,6 +212,7 @@
                         {
                             echo json_encode($addedLocale);
                             http_response_code(201);
+                            header('Content-type:application/json;charset=utf-8');
                         }
                         else
                         {

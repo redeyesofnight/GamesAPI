@@ -18,8 +18,8 @@
 
     if(count($request) <3)
     {
-        echo "Error: Insufficient api vars";
-        //http_response_code(404);
+        //echo "Error: Insufficient api vars";
+        http_response_code(404);
     }
     else
     {
@@ -35,8 +35,9 @@
                             $url.="/".$request[$i];
                         }
                         //echo "URL: ".$url."<br />";
-                        $file = @file_get_contents($url, false, $context);
-                        echo $file;
+                        $response = FileGetContentResponse($url, $_SERVER['REQUEST_METHOD']);
+                        http_response_code($response->code);
+                        echo json_encode($response->content);
                     break;
                     default:
                         http_response_code(404);
